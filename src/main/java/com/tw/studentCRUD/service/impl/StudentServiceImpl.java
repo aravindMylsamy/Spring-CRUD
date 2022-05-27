@@ -23,7 +23,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findStudentById(Long Id) throws Exception {
+    public Student getStudentById(Long Id) throws Exception {
         Optional< Student > student =  studentRepository.findById(Id);
 
         if(student.isPresent()){
@@ -41,7 +41,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student updateStudent(Long id ,Student studentDetails) throws Exception {
-        Student student = findStudentById(id);
+        Student student = getStudentById(id);
         student.setName(studentDetails.getName());
         student.setEmail(studentDetails.getEmail());
         student.setMobileNumber(studentDetails.getMobileNumber());
@@ -51,7 +51,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void deleteStudent(Long id) throws Exception {
-        Student student = findStudentById(id);
+        Student student = getStudentById(id);
         studentRepository.delete(student);
     }
 }

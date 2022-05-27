@@ -29,7 +29,7 @@ public class StudentController {
 
     @GetMapping("/student/{id}")
     public Student getStudentByEmail(@PathVariable(value = "id") Long id) throws Exception {
-         return studentService.findStudentById(id);
+         return studentService.getStudentById(id);
     }
 
     @GetMapping("/students")
